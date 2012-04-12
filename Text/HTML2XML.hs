@@ -1,4 +1,4 @@
-module HTML2XML where
+module Text.HTML2XML where
 
 import Control.Monad
 import Control.Monad.Identity
