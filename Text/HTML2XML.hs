@@ -1,4 +1,8 @@
-module Text.HTML2XML where
+module Text.HTML2XML 
+
+  (repair, StringLike(..))
+
+where
 
 import Control.Monad
 import Control.Monad.Identity
@@ -6,7 +10,7 @@ import Text.HTML.TagSoup
 import Text.StringLike
 import qualified Control.Monad.Trans.State.Lazy as State
 
-data CloseState a = CloseState {incomming :: a, open :: a, result :: a}
+data CloseState a = CloseState {_incomming :: a, _open :: a, result :: a}
 
 repair :: StringLike s => s -> s
 repair = runIdentity . (transform . parseTags >=> return . renderTags . reverse . result)
